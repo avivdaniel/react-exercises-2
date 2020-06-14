@@ -1,17 +1,22 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './Counter.scss';
 
-class Counter extends Component {
-
-	render() {
-		return (
-			<div className="Counter">
-				<p>Make the button increase the value:</p>
-				<button>Increase</button>
-				<div className="Counter__value">0</div>
-			</div>
-		)
+function Counter() {
+	const [num, setNum] = useState(0);
+	const increase = () => {
+		setNum(num + 1)
 	}
+	const decrease = () => {
+		setNum(num - 1)
+	}
+	return (
+		<div className="Counter">
+			<p>Make the button increase the value:</p>
+			<button onClick={increase}>Increase</button>
+			<button onClick={decrease}>Decrease</button>
+			<div className="Counter__value">{num}</div>
+		</div>
+	)
 }
 
 export default Counter;

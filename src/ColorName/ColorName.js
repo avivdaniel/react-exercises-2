@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import './ColorName.scss';
+import Colorize from './Colorize/Colorize';
 
-class ColorName extends Component {
+function ColorName() {
 
-	render() {
-		return (
-			<div className="ColorName">
-				<p>
-					Create a new component named <code>Colorize</code> under this component.
+	return (
+		<div className="ColorName">
+			<p>
+				Create a new component named <code>Colorize</code> under this component.
 					The component should receive a prop with a color name (like "blue") and present the word with the corresponding color.<br /><br />
 					Examples: <span className="color--red">red</span> <span className="color--blue">blue</span>
-				</p>
+			</p>
+			< Colorize color={'pink'} />
+		</div>
+	)
 
-				{ /* Insert your new component here */ }
-			</div>
-		)
-	}
 }
 
 export default ColorName;

@@ -1,20 +1,30 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Timer.scss';
 
-class Timer extends Component {
+function Timer() {
+	const [seconds, setSeconds] = useState(0);
 
-	render() {
-		return (
-			<div className="Timer">
-				<h3>Timer</h3>
-				<p>
-					Make a timer that counts the seconds.
-					Update it every second.
+	useEffect(() => {
+		console.log('useeefect happens');
+		const timer = setInterval(() => {
+			setSeconds(seconds => seconds + 1);
+		}, 1000);
+		return () => {
+			clearInterval(timer);
+		};
+	}, []);
+
+	return (
+		<div className="Timer">
+			<h3>Timer</h3>
+			<p>
+				Make a timer that counts the seconds.
+				Update it every second.
 				</p>
-				<div className="Timer__value">0</div>
-			</div>
-		)
-	}
+			<div className="Timer__value">{seconds}</div>
+		</div>
+	)
+
 }
 
 export default Timer;
